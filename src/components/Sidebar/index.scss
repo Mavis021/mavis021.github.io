@@ -1,0 +1,119 @@
+.nav-bar {
+    background: #1E2F97;
+    opacity: 0.9;
+    width: 100%;
+    height: 70px;
+    position: absolute;
+    top: 0;
+    z-index: 3;
+    min-width: 500px;
+    display: flex; 
+    justify-content: space-between; 
+    
+
+    .logo {
+        display: block;
+        padding: 8px 20px;
+        img {
+            display: block;
+            margin: 8px auto;
+            width: 30px;
+            height: auto;
+        }
+    }
+}
+
+nav {
+    display: flex; 
+    align-items: center; 
+    position: relative;
+    width: 100%; 
+    height: 100%;
+    justify-content: right;
+
+    a {
+        font-size: 22px;
+        color: #d4d4d4;
+        position:relative;
+        text-decoration: none;
+        margin-right: 50px;
+        justify-content: center;
+        display: flex;
+
+        i {
+            transition: all 0.3s ease-out;
+        }
+
+        &:hover {
+            color: #00aeff;
+            svg {
+                opacity: 0;
+            }
+
+            &:after {
+                opacity: 1;
+            }
+        }
+
+        &:after {
+            content: '';
+            font-size: 9px;
+            letter-spacing: 2px;
+            position: absolute;
+            text-align: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease-out;
+        }
+
+        &:first-child {
+            &:after {
+                content: 'HOME';
+            }
+        }
+    }
+
+    a.about-link {
+        &:after {
+            content: 'ABOUT';
+        }
+    }
+
+    a.contact-link {
+        &:after {
+            content: 'CONTACT';
+        }
+    }
+
+    a.active {
+        svg {
+            color: #00aeff;
+        }
+    }
+}
+
+ul {
+    position: relative;
+    height: 100%;
+    width: 50%;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    list-style: none;
+    margin: 0px;
+
+    li {
+        display: flex;
+        flex-direction: row;
+        a {
+            display: flex;
+            font-size: 15px;
+            margin: 10px;
+
+            &:hover svg {
+                color: #00aeff;
+            }
+        }
+    }
+}
