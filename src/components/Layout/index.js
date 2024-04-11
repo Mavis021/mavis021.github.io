@@ -1,25 +1,23 @@
-import { Outlet } from 'react-router-dom';
-import Sidebar from '../Sidebar';
+import React from 'react';
 import './index.scss';
 import ParticlesComponent from '../Particles';
+import Home from '../Home';
+import Footer from '../Footer';
+import { Outlet } from 'react-router-dom';
+import NavBar from '../NavBar';
 
 const Layout = () => {
 
     return (
-        <div className="App" >
+        <>
         <ParticlesComponent />
-        <Sidebar />
-        <div className='page'>
-            {/* <span className='tags top-tags'>{'</body>'}</span> */}
+    <div>
+        <NavBar />
+        <Home />
+        <Footer />
 
-            <Outlet />
-
-            {/* <span className='tags bottom-tags'>{'</body>'}
-            <br/>
-            <span className='bottom-tag-html'> {'</html>'}</span>
-            </span> */}
         </div>
-        </div>
+        </>
     );
     }
 

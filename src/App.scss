@@ -38,3 +38,36 @@ textarea{
     animation: fadeOut 0.3s 0.5s;
     animation-fill-mode: forwards;
 }
+
+body {
+    background: #000;
+}
+
+h1, h4, p, a {
+    color: #eeeeee;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.flat-button {
+    color: #eeeeee;
+    font-size: 11px;
+    font-family: 'Helvetica Neue';
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-decoration: none;
+    border: 1px solid #00aeff;
+    padding: 10px 20px;
+    margin-top: 23px;
+    float: left;
+    animation: fadeIn 1s 1.8s backwards;
+    white-space: nowrap;
+
+    &:hover {
+        background-color: #00aeff;
+        color: #333;
+    }
+}

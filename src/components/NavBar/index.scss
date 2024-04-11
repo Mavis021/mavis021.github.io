@@ -1,14 +1,14 @@
 .nav-bar {
     background: #1E2F97;
+    display: flex; 
     opacity: 0.9;
     width: 100%;
-    height: 70px;
-    position: absolute;
+    height: 90px;
+    position: fixed;
     top: 0;
+    left: 0;
     z-index: 3;
     min-width: 500px;
-    display: flex; 
-    justify-content: space-between; 
     
 
     .logo {
@@ -23,7 +23,23 @@
     }
 }
 
-nav {
+.nav-bar-bg {
+    background-color: rgba($color: #000, $alpha: 1);
+    transition: 0.5s;
+
+    .logo {
+        display: block;
+        padding: 8px 20px;
+        img {
+            display: block;
+            margin: 8px auto;
+            width: 30px;
+            height: auto;
+        }
+    }
+}
+
+.nav {
     display: flex; 
     align-items: center; 
     position: relative;
@@ -115,5 +131,41 @@ ul {
                 color: #00aeff;
             }
         }
+    }
+}
+
+.Hamburger {
+    color: #d4d4d4;
+    top: 30%;
+    right: 10%;
+    justify-content: right;
+    position: absolute;
+    display: none;
+}
+
+@media screen and (max-width: 1040px) {
+    .nav {
+        flex-direction: column;
+        background-color: #1E2F97;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        left: -100%;
+        height: 100vh;
+        position: absolute;
+        padding: 1rem 0;
+        transition: 0.3s;
+    }
+
+    .nav .list {
+        padding: 1rem 0;
+    }
+
+    .nav.active {
+        left: 0;
+    }
+
+    .Hamburger {
+        display: initial;
     }
 }

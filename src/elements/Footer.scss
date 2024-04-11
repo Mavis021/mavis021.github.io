@@ -1,0 +1,119 @@
+footer {
+    position: relative;
+    padding: 1rem 0;
+    padding-bottom: 0%;
+    background: #1E2F97;
+    opacity: 0.95;
+    width: 100%;
+    min-width: 500px;
+
+    .footer-content {
+        max-width: 1140px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20%;
+        align-items: center;
+        
+
+        .left {
+            height: 100%;
+            max-width: 100%;
+            display: flex;
+            padding: 0;
+            flex-direction: column;
+            align-items: center;
+            
+            .location, .email {
+                display: flex;
+                align-items: center;
+            }
+
+            .location p,.email p {
+                line-height: 30px;
+                letter-spacing: 1px;
+            }
+
+            .location p {
+                margin-left: 10px;
+            }
+
+            .email p {
+                margin-top: -3%;
+            }
+        }
+
+
+        .right {
+            
+            height: 100%;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            p {
+                font-size: 18px;
+            }
+
+            ul {
+                position: relative;
+                height: 100%;
+                width: 50%;
+                display: flex; 
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+                list-style: none;
+                margin: 0px;
+            
+                li {
+                    display: flex;
+                    flex-direction: row;
+                    a {
+                        display: flex;
+                        font-size: 25px;
+                        margin: 10px;
+                        margin-top: -20px;
+                        &:hover svg {
+                            color: #00aeff;
+                        }
+                    }
+                }
+            }
+            
+        }
+    
+    }
+ }
+
+
+
+footer p{
+    font-size: 16px;
+    font-family: 'Helvetica Neue';
+    align-items: center;
+    justify-content: center;
+    color: #eeeeee;
+    letter-spacing: 3px;
+}
+
+.footer-bottom {
+    background: #1E2F97;
+    opacity: 1;
+    height: 10px;
+    text-align: center;
+    p {
+        font-size: 16px;
+        color: #eeeeee;
+        letter-spacing: 2px;
+    }
+}
+@media screen and (max-width: 768px) {
+    footer {
+        .footer-content {
+            grid-gap: 0;
+            
+        }
+    }
+}

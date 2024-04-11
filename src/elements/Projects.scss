@@ -1,0 +1,130 @@
+.Projects {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10%;
+    position: relative;
+    background-color: rgba($color: #1E2F97, $alpha: 0.7);
+}
+.Projects h1 {
+    font-size: 40px;
+    color: #00aeff;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.project-container {
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.project-slider {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+
+
+    .project {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    width: 300px;
+    height: 300px;
+    background-color: #1E2F97;
+    opacity: 1.0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-out;
+
+    .mask, .masktop{
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        position: relative;
+        background-color: rgba($color: #1E2F97, $alpha: 1.0);
+    }
+
+    .github {
+        opacity: 0;
+        font-size: 10px;
+        transition: all 0.3s ease-out;
+    }
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+
+        .github , h2 .title{
+            justify-content: center;
+            opacity: 1;
+            font-size: 23px;
+            color: #00aeff;
+        }
+
+        h2 .title{
+            font-size: 17px;
+        }
+
+    }
+
+    img{
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        background-size: cover;
+        background-position: center;
+        object-fit: cover;
+    }
+
+    .mask::after, .masktop::after{
+        content: '';
+        position: absolute;
+        bottom:0;
+        left: 0;
+        width: 100%;
+        height: 30%;
+        background: rgba($color: #1E2F97, $alpha: 0.9);
+        border-top-left-radius: 80%;
+    }
+
+    .masktop::after{
+        top: 0;
+        height: 100%;
+        background: rgba($color: #0A0A0A, $alpha: 0.2);
+        border-top-left-radius: 70%;
+        border-top-right-radius: 10px;
+    }
+
+
+    h2 {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 35%;
+        font-family: 'Helvetica Neue';
+        font-size: 27px;
+        color: #eeeeee;
+        margin: 1rem;
+        letter-spacing: 2px;
+    }
+
+    p {
+        transform: scale(1);
+        font-family: 'Helvetica Neue';
+        margin: 1rem;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        color: #eeeeee;
+        letter-spacing: 1px;
+        position: absolute;
+        bottom: 5%;
+        width: 250px;
+    }
+}
+}
+

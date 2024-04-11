@@ -1,0 +1,15 @@
+.Footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #495057;
+    a {
+        color: #495057;
+        text-decoration: none;
+        &:hover {
+        text-decoration: underline;
+        }
+    }
+    z-index: 3;
+}
