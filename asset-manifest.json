@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Mavis021/static/css/main.ce6d49c3.css",
-    "main.js": "/Mavis021/static/js/main.69d9f280.js",
+    "main.js": "/Mavis021/static/js/main.123da887.js",
     "static/js/1927.14d692d7.chunk.js": "/Mavis021/static/js/1927.14d692d7.chunk.js",
     "static/js/7590.4b291be6.chunk.js": "/Mavis021/static/js/7590.4b291be6.chunk.js",
     "static/js/6725.484831f9.chunk.js": "/Mavis021/static/js/6725.484831f9.chunk.js",
@@ -84,7 +84,7 @@
     "static/media/revicons.woff": "/Mavis021/static/media/revicons.e8746a624ed098489406.woff",
     "index.html": "/Mavis021/index.html",
     "main.ce6d49c3.css.map": "/Mavis021/static/css/main.ce6d49c3.css.map",
-    "main.69d9f280.js.map": "/Mavis021/static/js/main.69d9f280.js.map",
+    "main.123da887.js.map": "/Mavis021/static/js/main.123da887.js.map",
     "1927.14d692d7.chunk.js.map": "/Mavis021/static/js/1927.14d692d7.chunk.js.map",
     "7590.4b291be6.chunk.js.map": "/Mavis021/static/js/7590.4b291be6.chunk.js.map",
     "6725.484831f9.chunk.js.map": "/Mavis021/static/js/6725.484831f9.chunk.js.map",
@@ -156,6 +156,6 @@
   },
   "entrypoints": [
     "static/css/main.ce6d49c3.css",
-    "static/js/main.69d9f280.js"
+    "static/js/main.123da887.js"
   ]
 }
