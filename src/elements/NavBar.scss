@@ -112,6 +112,12 @@
         }
     }
 
+    a.project-link {
+        &:after {
+            content: 'PROJECTS';
+        }
+    }
+
     a.contact-link {
         &:after {
             content: 'CONTACT';
@@ -123,6 +129,7 @@
             color: #00aeff;
         }
     }
+
 }
 
 

@@ -2,7 +2,7 @@ import './NavBar.scss'
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/images/logoM.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faEnvelope, faHome, faTimes, faUser, faX } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCodeMerge, faEnvelope, faHome, faProjectDiagram, faTimes, faUser, faX } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { useState } from 'react';
 
@@ -31,9 +31,12 @@ const NavBar = () => {
                 <NavLink exact="true" activeclassname="active" className="list" to="/">
                     <FontAwesomeIcon icon={faHome} color='#d4d4d4'/>
                 </NavLink>
-                <NavLink exact="true" activeclassname="active" className="list about-link" to="/about">
+                <a href="../#AboutSection" activeclassname="active" className='list about-link'>
                     <FontAwesomeIcon icon={faUser} color='#d4d4d4'/>
-                </NavLink>
+                </a>
+                <a href="../#ProjectSection" activeclassname="active" className='list project-link'>
+                    <FontAwesomeIcon icon={faCodeMerge} color='#d4d4d4'/>
+                </a>
                 <NavLink exact="true" activeclassname="active" className="list contact-link" to="/contact">
                     <FontAwesomeIcon icon={faEnvelope} color='#d4d4d4'/>
                 </NavLink>

@@ -16,7 +16,7 @@ const About = () => {
     }, []);
     return (
 
-        <div className='About'>
+        <div className='About' id='AboutSection'>
                 <h1>
                     <AnimatedLetters 
                     letterClass={letterClass}

@@ -45,7 +45,7 @@ const Projects = () => {
       };      
 
     return (
-        <div className='Projects'>
+        <div className='Projects' id='ProjectSection'>
             <h1>
                 <AnimatedLetters 
                 letterClass={letterClass}
