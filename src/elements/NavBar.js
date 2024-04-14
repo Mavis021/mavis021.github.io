@@ -31,10 +31,10 @@ const NavBar = () => {
                 <NavLink exact="true" activeclassname="active" className="list" to="/">
                     <FontAwesomeIcon icon={faHome} color='#d4d4d4'/>
                 </NavLink>
-                <a href="../#AboutSection" activeclassname="active" className='list about-link'>
+                <a href="../Mavis021/#AboutSection" activeclassname="active" className='list about-link'>
                     <FontAwesomeIcon icon={faUser} color='#d4d4d4'/>
                 </a>
-                <a href="../#ProjectSection" activeclassname="active" className='list project-link'>
+                <a href="../Mavis021/#ProjectSection" activeclassname="active" className='list project-link'>
                     <FontAwesomeIcon icon={faCodeMerge} color='#d4d4d4'/>
                 </a>
                 <NavLink exact="true" activeclassname="active" className="list contact-link" to="/contact">
