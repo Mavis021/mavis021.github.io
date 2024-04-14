@@ -28,13 +28,13 @@ const NavBar = () => {
                 <img src={logo} alt="Logo" />
             </Link>
             <div className={click? "nav active" : "nav"}>
-                <NavLink exact="true" activeclassname="active" className="list" to="/">
+                <a href="../#Home" activeclassname="active" className='list'>
                     <FontAwesomeIcon icon={faHome} color='#d4d4d4'/>
-                </NavLink>
-                <a href="../Mavis021/#AboutSection" activeclassname="active" className='list about-link'>
+                </a>
+                <a href="../#AboutSection" activeclassname="active" className='list about-link'>
                     <FontAwesomeIcon icon={faUser} color='#d4d4d4'/>
                 </a>
-                <a href="../Mavis021/#ProjectSection" activeclassname="active" className='list project-link'>
+                <a href="../#ProjectSection" activeclassname="active" className='list project-link'>
                     <FontAwesomeIcon icon={faCodeMerge} color='#d4d4d4'/>
                 </a>
                 <NavLink exact="true" activeclassname="active" className="list contact-link" to="/contact">

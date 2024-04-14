@@ -25,7 +25,7 @@ const Hirosection = () => {
 
     return (
         <>
-        <div className="home-page container">
+        <div className="home-page container" id='Home'>
             <div className="text-zone">
                 <h1>
                 <span className={letterClass} style={{fontSize:'25px', fontFamily: 'La Belle Aurore', letterSpacing: '0.5px'} }>Hello</span>
