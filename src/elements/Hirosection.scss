@@ -1,228 +1,141 @@
+@import '../styles/variables';
+
 .home-page {
     width: 100%;
-    height: 100vh;
-    overflow: scroll;
-    .text-zone {
-        position: absolute;
-        left: 15%;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 40%;
-        max-height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 160px 20px 90px;
+    position: relative;
+    z-index: 1;
+
+    .hero-inner {
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        gap: 70px;
+        max-width: 980px;
+        margin: 0 auto;
     }
+
+    .text-zone {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+        max-width: 460px;
+
+        .eyebrow {
+            font-family: 'La Belle Aurore';
+            color: $accent;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+            opacity: 0.85;
+            animation: fadeIn 1s 0.6s backwards;
+        }
+    }
+
+    .hero-image {
+        display: flex;
+        flex-shrink: 0;
+
+        img {
+            width: 260px;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px $shadow, 0 0 0 6px $panel;
+            animation: fadeIn 1s 0.6s backwards;
+        }
+    }
+
     h1 {
-        color: #d4d4d4;
-        font-size: 58px;
-        margin: 0;
+        color: $text;
+        font-size: 52px;
+        margin: 6px 0 0;
         font-family: 'Coolvetica';
         font-weight: 400;
-        letter-spacing: 3px;
+        letter-spacing: 2px;
 
         &:hover {
             cursor: pointer;
-        }
-
-        &::before {
-            font-family: 'La Belle Aurore';
-            color: #00aeff;
-            font-size: 18px;
-            position: absolute;
-            margin-top: -40px;
-            left:15px;
-            opacity:0.6;
-        }
-
-        &::after {
-            font-family: 'La Belle Aurore';
-            color: #00aeff;
-            font-size: 18px;
-            position: absolute;
-            margin-top: 18px;
-            margin-left: 20px;
-            animation: fadeIn 1s 1.7s backwards;
-            opacity: 0.6;
-        }
-
-        img {
-            width: 50px;
-            margin-left: 20px;
-            margin-right: 5px;
-            opacity: 0;
-            height: auto;
-            animation: rotateIn 1s linear both;
-            animation-delay: 1.4s;
         }
     }
 
     h2 {
-        color: #eeeeee;
-        font-size: 14px;
-        font-family: 'Coolvetica'; 
-        margin-top: 18px;
+        color: $text-muted;
+        font-size: 15px;
+        font-family: 'Coolvetica';
+        margin-top: 14px;
         font-weight: 400;
-        letter-spacing: 2px;
-        justify-content: right;
+        letter-spacing: 1.5px;
         animation: fadeIn 1s 1.8s backwards;
-
-        &:hover {
-            cursor: pointer;
-        }
-
     }
 
-    .flat-button {
-        color: #eeeeee;
-        font-size: 11px;
-        font-family: 'Helvetica Neue';
-        font-weight: 400;
-        letter-spacing: 3px;
-        text-decoration: none;
-        border: 1px solid #00aeff;
-        padding: 10px 20px;
-        margin-top: 23px;
-        float: left;
-        animation: fadeIn 1s 1.8s backwards;
-        white-space: nowrap;
-
-        &:hover {
-            background-color: #00aeff;
-            color: #333;
-        }
-    }
-}
-
-.stage-cube-cont {
-    width: 50%;
-    height: 100%;
-    top: 0;
-    padding-top: 18%;
-    margin-left: 0;
-    position: absolute;
-    right: 0;
-    overflow: hidden;
-}
-
-.cubespinner {
-    position:absolute;
-    animation-name: spincube;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-duration: 12s;
-    transform-style: preserve-3d;
-    transform-origin: 100px 100px 0;
-    margin-left: calc(50% - 100px);
-
-    div, .myImg {
-        width: 200px;
-        height: 200px;
-        position: absolute;
-        border: 1px solid #ccc;
-        background: rgba(255, 255, 255, 0.4);
-        text-align: center;
-        font-size: 100px;
+    .hero-socials {
         display: flex;
-        justify-content: center;
-        align-items:center;
-        box-shadow: 0 0 20px 0px lightblue;
-    }
+        gap: 18px;
+        margin-top: 28px;
+        animation: fadeIn 1s 2.1s backwards;
 
-    .cube-face-front {
-        transform: translateZ(100px);
-    }
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid $border;
+            background: $panel;
+            color: $accent-dark;
+            font-size: 17px;
+            transition: all 0.25s ease-out;
 
-    .cube-face-back {
-        transform: rotateY(180deg) translateZ(100px);
-    }
-
-    .cube-face-right {
-        transform: rotateY(90deg) translateZ(100px);
-    }
-
-    .cube-face-left {
-        transform: rotateY(-90deg) translateZ(100px);
-    }
-
-    .cube-face-top {
-        transform: rotateX(90deg) translateZ(100px);
-    }
-
-    .cube-face-bottom {
-        transform: rotateX(-90deg) translateZ(100px);
+            &:hover {
+                background: $accent;
+                border-color: $accent;
+                color: #fff;
+                transform: translateY(-3px);
+            }
+        }
     }
 }
 
-@keyframes spincube {
-
-    from,
-    to {
-        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-    }
-    16% {
-        transform: rotateY(-90deg);
-    }
-    33% {
-        transform:  rotateY(-90deg) rotateZ(90deg);
-    }
-    50% {
-        transform:  rotateY(-180deg) rotateZ(90deg);
-    }
-    66% {
-        transform:  rotateY(-270deg) rotateZ(90deg);
-    }
-    83% {
-        transform:  rotateX(-90deg);
-    }
-
-}
-
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 900px) {
    .home-page{
-    .text-zone{
-        width: 80%;
-        left: 10%;
-        top: 65%;
-    transform: translateY(-10%);
-    transition: 0.3;
+    padding: 130px 20px 70px;
+
+    .hero-inner {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .text-zone {
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-image img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+    }
+
+    h1 {
+        font-size: 38px;
+        letter-spacing: 1px;
+    }
+
+    .hero-socials {
+        gap: 16px;
+
+        a {
+            width: 38px;
+            height: 38px;
+            font-size: 15px;
+        }
+    }
    }
-   h1 {
-    font-size: 43px;
-    letter-spacing: 2px;
-
-    &::before {
-        font-family: 'La Belle Aurore';
-        color: #00aeff;
-        font-size: 18px;
-        position: absolute;
-        margin-top: -40px;
-        left:15px;
-        opacity:0.6;
-    }
-
-    &::after {
-        font-family: 'La Belle Aurore';
-        color: #00aeff;
-        font-size: 18px;
-        position: absolute;
-        margin-top: 18px;
-        margin-left: 20px;
-        animation: fadeIn 1s 1.7s backwards;
-        opacity: 0.6;
-    }
-    
-    img {
-        width: 45px;
-        margin-left: 10px;
-        margin-right: 5px;
-    }
-    }
-
-    }
-
-    .stage-cube-cont {
-        position: absolute;
-        width: 100%;
-        height: 50%;
-        padding-top: 27%;
-    }
 }
-

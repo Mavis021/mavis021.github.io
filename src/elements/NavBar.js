@@ -2,8 +2,7 @@ import './NavBar.scss'
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/images/logoM.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faCodeMerge, faEnvelope, faHome, faProjectDiagram, faTimes, faUser, faX } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faBars, faBriefcase, faCodeMerge, faEnvelope, faHome, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 
 
@@ -29,24 +28,24 @@ const NavBar = () => {
             </Link>
             <div className={click? "nav active" : "nav"}>
                 <a href="../#Home" activeclassname="active" className='list'>
-                    <FontAwesomeIcon icon={faHome} color='#d4d4d4'/>
+                    <FontAwesomeIcon icon={faHome} color='#4E3B85'/>
                 </a>
-                <a href="../#AboutSection" activeclassname="active" className='list about-link'>
-                    <FontAwesomeIcon icon={faUser} color='#d4d4d4'/>
+                <a href="../#ExperienceSection" activeclassname="active" className='list experience-link'>
+                    <FontAwesomeIcon icon={faBriefcase} color='#4E3B85'/>
                 </a>
                 <a href="../#ProjectSection" activeclassname="active" className='list project-link'>
-                    <FontAwesomeIcon icon={faCodeMerge} color='#d4d4d4'/>
+                    <FontAwesomeIcon icon={faCodeMerge} color='#4E3B85'/>
                 </a>
                 <NavLink exact="true" activeclassname="active" className="list contact-link" to="/contact">
-                    <FontAwesomeIcon icon={faEnvelope} color='#d4d4d4'/>
+                    <FontAwesomeIcon icon={faEnvelope} color='#4E3B85'/>
                 </NavLink>
 
             </div>
             <div className='Hamburger' onClick={handleClick}>
                     {click ? (
-                        <FontAwesomeIcon icon={faTimes} color='#d4d4d4'/>
+                        <FontAwesomeIcon icon={faTimes} color='#4E3B85'/>
                     ) : (
-                        <FontAwesomeIcon icon={faBars} color='#d4d4d4'/>
+                        <FontAwesomeIcon icon={faBars} color='#4E3B85'/>
                     )}
             </div>
         </div>

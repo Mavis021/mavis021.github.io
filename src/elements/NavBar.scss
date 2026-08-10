@@ -1,7 +1,11 @@
+@import '../styles/variables';
+
 .nav-bar {
-    background: #1E2F97;
-    display: flex; 
-    opacity: 0.9;
+    background: rgba(250, 248, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid $border;
+    display: flex;
     width: 100%;
     height: 90px;
     position: fixed;
@@ -9,7 +13,8 @@
     left: 0;
     z-index: 3;
     min-width: 500px;
-    
+    transition: 0.5s;
+
 
     .logo {
         display: block;
@@ -49,8 +54,8 @@
 }
 
 .nav-bar-bg {
-    background-color: rgba($color: #1E2F97, $alpha: 0.01);
-    transition: 0.5s;
+    background-color: rgba(250, 248, 255, 0.95);
+    box-shadow: 0 2px 20px $shadow;
 }
 
 .nav {
@@ -63,7 +68,7 @@
 
     a {
         font-size: 22px;
-        color: #d4d4d4;
+        color: $accent-dark;
         position:relative;
         text-decoration: none;
         text-align: center;
@@ -78,7 +83,7 @@
         }
 
         &:hover {
-            color: #00aeff;
+            color: $accent;
             svg {
                 opacity: 0;
             }
@@ -106,9 +111,9 @@
         }
     }
 
-    a.about-link {
+    a.experience-link {
         &:after {
-            content: 'ABOUT';
+            content: 'EXPERIENCE';
         }
     }
 
@@ -126,7 +131,7 @@
 
     a.active {
         svg {
-            color: #00aeff;
+            color: $accent;
         }
     }
 
@@ -134,7 +139,7 @@
 
 
 .Hamburger {
-    color: #d4d4d4;
+    color: $accent-dark;
     top: 30%;
     right: 10%;
     justify-content: right;
@@ -144,12 +149,13 @@
 
 @media screen and (max-width: 1040px) {
     .nav-bar {
-        background-color: rgba($color: #1E2F97, $alpha: 0);
+        background-color: rgba(250, 248, 255, 0.9);
     }
 
     .nav {
         flex-direction: column;
-        background-color: #1E2F97;
+        background-color: $bg;
+        box-shadow: 2px 0 20px $shadow;
         justify-content: center;
         align-items: center;
         width: 100%;

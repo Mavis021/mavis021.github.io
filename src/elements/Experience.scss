@@ -1,0 +1,129 @@
+@import '../styles/variables';
+
+.Experience {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+    background-color: $panel-alt;
+    border-radius: 20px;
+    position: relative;
+    margin: 5% 12%;
+
+    h1 {
+        color: $accent;
+        font-size: 40px;
+        margin: 0 0 40px;
+        font-family: 'Coolvetica';
+        font-weight: 200;
+        letter-spacing: 0.2rem;
+    }
+
+    .experience-timeline {
+        position: relative;
+        width: 80%;
+        max-width: 800px;
+        padding-left: 30px;
+        border-left: 2px solid $accent-soft;
+    }
+
+    .experience-item {
+        position: relative;
+        margin-bottom: 40px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .experience-dot {
+        position: absolute;
+        left: -37px;
+        top: 6px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: $accent;
+        box-shadow: 0 0 0 4px rgba($color: $accent, $alpha: 0.2);
+    }
+
+    .experience-card {
+        background-color: $panel;
+        border-radius: 10px;
+        padding: 18px 22px;
+        box-shadow: 0 4px 20px $shadow;
+        transition: all 0.3s ease-out;
+
+        &:hover {
+            box-shadow: 0 8px 30px rgba($color: $accent, $alpha: 0.2);
+        }
+    }
+
+    .experience-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 10px;
+
+        h3 {
+            color: $text;
+            font-family: 'Helvetica Neue';
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 0.05rem;
+            margin: 0;
+        }
+    }
+
+    .experience-period {
+        color: $accent;
+        font-family: 'Helvetica Neue';
+        font-size: 12px;
+        letter-spacing: 0.05rem;
+        white-space: nowrap;
+    }
+
+    .experience-org {
+        color: $text-muted;
+        font-family: 'Helvetica Neue';
+        font-size: 13px;
+        font-style: italic;
+        margin: 4px 0 10px;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+            color: $text-muted;
+            font-family: 'Helvetica Neue';
+            font-weight: 300;
+            font-size: 13px;
+            letter-spacing: 0.03rem;
+            line-height: 1.6;
+            padding-left: 16px;
+            position: relative;
+
+            &::before {
+                content: '›';
+                position: absolute;
+                left: 0;
+                color: $accent;
+            }
+        }
+    }
+
+    @media screen and (max-width: 770px) {
+        .experience-timeline {
+            width: 100%;
+            padding-left: 20px;
+        }
+
+        .experience-dot {
+            left: -27px;
+        }
+    }
+}

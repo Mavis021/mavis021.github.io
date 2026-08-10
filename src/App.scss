@@ -1,4 +1,4 @@
-$primary-color: #00aeff;
+@import './styles/variables';
 
 @import 'animate.css';
 @import '~loaders.css/src/animations/pacman.scss';
@@ -40,11 +40,11 @@ textarea{
 }
 
 body {
-    background: #000;
+    background: $bg;
 }
 
 h1, h4, p, a {
-    color: #eeeeee;
+    color: $text;
     text-decoration: none;
 }
 
@@ -53,21 +53,23 @@ ul {
 }
 
 .flat-button {
-    color: #eeeeee;
+    color: $accent;
     font-size: 11px;
     font-family: 'Helvetica Neue';
     font-weight: 400;
     letter-spacing: 3px;
     text-decoration: none;
-    border: 1px solid #00aeff;
+    border: 1px solid $accent;
+    border-radius: 6px;
     padding: 10px 20px;
     margin-top: 23px;
     float: left;
     animation: fadeIn 1s 1.8s backwards;
     white-space: nowrap;
+    transition: all 0.25s ease-out;
 
     &:hover {
-        background-color: #00aeff;
-        color: #333;
+        background-color: $accent;
+        color: #fff;
     }
 }

@@ -5,11 +5,47 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faEye, faLandmark, faLanguage, faCommentSlash, faIdCard } from '@fortawesome/free-solid-svg-icons'
 
 import DrawTect from '../assets/images/logoWhite.png'
-import TheLostSpectrum from '../assets/images/chromaterrabw.jpg'
-import Vizuo from '../assets/images/image.png'
-import hogwarts from '../assets/images/hogwarts.jpg'
+
+const projectData = [
+    {
+        name: 'Evision',
+        description: 'AR mobile app | Scene description for low-vision users | Unity + Llama + TTS',
+        href: 'https://github.com/Mavis021/Evision',
+        icon: faEye,
+    },
+    {
+        name: 'MUSE',
+        description: 'Fusemachines AI Fellowship | RAG-powered museum guide | Multi-label image recognition',
+        icon: faLandmark,
+    },
+    {
+        name: 'XenoLingo',
+        description: 'Winner, MBM IDEAX 2023 with UNESCO Nepal | Preserving Indigenous languages',
+        href: 'https://github.com/Mavis021/XenoLingo',
+        icon: faLanguage,
+    },
+    {
+        name: 'SWEEP',
+        description: 'Toxic Comments Classification | Fine-tuned BERT for content moderation',
+        href: 'https://github.com/Mavis021/Sweep_Toxic_Comments_Classification',
+        icon: faCommentSlash,
+    },
+    {
+        name: 'PhotoValidationSystem',
+        description: 'Web app streamlining photo validation for online forms | Django + OpenCV',
+        href: 'https://github.com/Mavis021/PhotoValidationSystem',
+        icon: faIdCard,
+    },
+    {
+        name: 'DrawTect',
+        description: 'A VS Code Extension | Drawing support | Scribble when Coding',
+        href: 'https://github.com/Mavis021/DrawTect',
+        image: DrawTect,
+    },
+];
 
 const Projects = () => {
     const [letterClass, setLetterClass] = useState('text-animate');
@@ -18,7 +54,7 @@ const Projects = () => {
         const timeoutId = setTimeout(() => {
             setLetterClass('text-animate-hover');
         }, 3000);
-    
+
         return () => {
             clearTimeout(timeoutId); // Clear the timeout when the component unmounts
         };
@@ -42,12 +78,33 @@ const Projects = () => {
           breakpoint: { max: 464, min: 0 },
           items: 1
         }
-      };      
+      };
+
+    const renderCard = (project) => (
+        <div className='project'>
+            {project.image ? (
+                <div className='masktop'>
+                    <div className='mask'>
+                        <img src={project.image} alt={project.name} />
+                    </div>
+                </div>
+            ) : (
+                <div className='icon-face'>
+                    <FontAwesomeIcon icon={project.icon} />
+                </div>
+            )}
+            <h2>
+                <div className='title'>{project.name}</div>
+                {project.href && <FontAwesomeIcon className='github' icon={faGithub} color='#d4d4d4' />}
+            </h2>
+            <p>{project.description}</p>
+        </div>
+    );
 
     return (
         <div className='Projects' id='ProjectSection'>
             <h1>
-                <AnimatedLetters 
+                <AnimatedLetters
                 letterClass={letterClass}
                 strArray={['P', 'r', 'o', 'j', 'e', 'c', 't', 's']}
                 idx={15}
@@ -55,59 +112,17 @@ const Projects = () => {
             </h1>
             <div className='project-container'>
             <Carousel responsive={responsive} infinite={true} className='project-slider'>
-                
-            <a target="_blank" rel='noreferrer' href='https://github.com/Mavis021/DrawTect'> 
-            
-            <div className='project'>
-             
-                <h2 style={{position: 'relative', top: '0%', textAlign: 'center'}}>
-                <div className='title' >DrawTect</div> 
-                <FontAwesomeIcon className='github' icon={faGithub} color='#d4d4d4'/> </h2>
-                <img  style={{width: '100%',height: '32%', marginTop: '5px'}} src={DrawTect} alt='DrawTect'/>
-                    
-                <p>A VS Code Extension | Drawing support | Scribble when Coding</p>
-            </div></a>
-
-            <a target="_blank" rel='noreferrer' href='https://github.com/Mavis021/TheLostSpectrum'>
-
-            <div className='project'>
-            <div className='masktop'>
-            <div className='mask'>
-            
-            <img src={TheLostSpectrum} alt='TheLostSpectrum'/>
-            </div></div>
-                <h2> <div className='title' >The Lost Spectrum</div> 
-                <FontAwesomeIcon className='github' icon={faGithub} color='#d4d4d4'/> </h2>
-                <p>2D Top Down Adventure Game | C++ with Raylib | Indie Games</p>
-            </div></a>
-
-            <a target="_blank" rel='noreferrer' href='https://github.com/Mavis021/Vizuo'>
-
-            <div className='project'>
-            <div className='masktop'>
-            <div className='mask'>
-    
-            <img src={Vizuo} alt='Vizuo'/>
-            </div></div>
-                <h2><div className='title' >VIZUO</div> 
-                <FontAwesomeIcon className='github' icon={faGithub} color='#d4d4d4'/> </h2>
-                <p>Web Application | Visualizating Algorithms | Sorting | Searching </p>
-           
-            </div></a>
-
-            <a target="_blank" rel='noreferrer' href='https://github.com/Mavis021/Hogwarts_0.3'>
-           
-            <div className='project'>
-             <div className='masktop'>
-            <div className='mask'>
-            <img src={hogwarts} alt='Hogwarts_0.3'/>
-            </div></div>
-                <h2><div className='title' >Hogwarts_0.3</div> 
-                <FontAwesomeIcon className='github' icon={faGithub} color='#d4d4d4'/> </h2>
-                <p>2D Game | C++ with SDL </p>
-           
-            </div></a>
-
+                {projectData.map((project) => (
+                    project.href ? (
+                        <a target="_blank" rel='noreferrer' href={project.href} key={project.name}>
+                            {renderCard(project)}
+                        </a>
+                    ) : (
+                        <div key={project.name}>
+                            {renderCard(project)}
+                        </div>
+                    )
+                ))}
             </Carousel>
             </div>
         </div>

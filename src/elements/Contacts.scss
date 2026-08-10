@@ -1,10 +1,13 @@
+@import '../styles/variables';
+
 .contact-page {
   display: flex;
   align-items: center;
   text-align: center;
   padding: 20px 0;
-  background-color: #1E2F97;
-  opacity: 0.95;
+  background-color: $panel;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px $shadow;
   position: relative;
   margin: 0 8%;
   margin-top: 5%;
@@ -15,7 +18,7 @@
     vertical-align: middle;
 
     h1 {
-      color: #00aeff;
+      color: $accent;
       font-size: 40px;
       margin: 0;
       font-family: 'Coolvetica';
@@ -24,7 +27,7 @@
     }
 
     p {
-      color: #eeeeee;
+      color: $text-muted;
       font-size: 14px;
       font-family: 'Helvetica Neue';
       font-weight: 300;
@@ -41,7 +44,7 @@
 .contact-form {
   width: 50%;
   align-items: center;
-  background-color: rgba(30, 47, 151, 1);
+  background-color: $panel;
 
   ul {
     padding: 5%;
@@ -76,36 +79,44 @@
   input[type='text'],
   input[type='email'] {
     width: 100%;
-    border: 0.5px solid #00aeff;
-    background: rgba(30, 47, 151, 0.4);
+    border: 1px solid $border;
+    background: $panel-alt;
     height: 50px;
     font-size: 16px;
-    color: #eeeeee;
+    color: $text;
     padding: 0 20px;
     box-sizing: border-box;
     border-radius: 1rem;
+
+    &::placeholder {
+      color: $text-muted;
+    }
   }
 
   textarea {
     width: 100%;
-    border: 0.5px solid #00aeff;
-    background: rgba(30, 47, 151, 1);
+    border: 1px solid $border;
+    background: $panel-alt;
     height: 50px;
     font-size: 16px;
-    color: #eeeeee;
+    color: $text;
     padding: 20px;
     box-sizing: border-box;
     min-height: 150px;
     border-radius: 1rem;
+
+    &::placeholder {
+      color: $text-muted;
+    }
   }
 
   .flat-button {
-    color: #00aeff;
+    color: $accent;
     font-size: 11px;
     letter-spacing: 3px;
     text-decoration: none;
     padding: 8px 10px;
-    border: 1px solid #00aeff;
+    border: 1px solid $accent;
     float: left;
     border-radius: 4px;
     background: 0 0;
@@ -115,8 +126,8 @@
     margin-right: 10px;
 
     &:hover {
-      background-color: #00aeff;
-      color: #333;
+      background-color: $accent;
+      color: #fff;
     }
   }
 }
