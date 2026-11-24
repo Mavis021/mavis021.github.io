@@ -1,55 +1,53 @@
-import './NavBar.scss'
-import { Link, NavLink } from 'react-router-dom';
-import logo from '../assets/images/logoM.png';
+import './NavBar.scss';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faBriefcase, faCodeMerge, faEnvelope, faHome, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
-
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { useEffect, useState } from 'react';
+import logo from '../assets/images/sunflower.svg';
+import { nav } from '../content';
 
 const NavBar = () => {
-    const [click, setClick] = useState(false);
-    const handleClick = () => setClick(!click);
+    const [open, setOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
 
-    const [color, setColor] = useState(false);
-    const changeColor = () => {
-        if(window.scrollY >= 80){
-            setColor(true);
-        } else {
-            setColor(false);
-        }
-    }
-
-    window.addEventListener('scroll', changeColor);
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 24);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
 
     return (
-        <div className={color ? "nav-bar nav-bar-bg" : "nav-bar"}>
-            <Link to="/" className="logo">
-                <img src={logo} alt="Logo" />
-            </Link>
-            <div className={click? "nav active" : "nav"}>
-                <a href="../#Home" activeclassname="active" className='list'>
-                    <FontAwesomeIcon icon={faHome} color='#4E3B85'/>
-                </a>
-                <a href="../#ExperienceSection" activeclassname="active" className='list experience-link'>
-                    <FontAwesomeIcon icon={faBriefcase} color='#4E3B85'/>
-                </a>
-                <a href="../#ProjectSection" activeclassname="active" className='list project-link'>
-                    <FontAwesomeIcon icon={faCodeMerge} color='#4E3B85'/>
-                </a>
-                <NavLink exact="true" activeclassname="active" className="list contact-link" to="/contact">
-                    <FontAwesomeIcon icon={faEnvelope} color='#4E3B85'/>
-                </NavLink>
-
+        <nav className={`nav-bar${scrolled ? ' scrolled' : ''}`}>
+            <div className="nav-inner">
+                <Link to="/" className="logo" aria-label="Home" onClick={() => setOpen(false)}>
+                    <img src={logo} alt="" />
+                </Link>
+                <div className={`nav-links${open ? ' open' : ''}`}>
+                    {nav.map((item) => (
+                        <Link
+                            key={item.id}
+                            to={`/#${item.id}`}
+                            onClick={() => {
+                                setOpen(false);
+                                document.getElementById(item.id)?.scrollIntoView();
+                            }}
+                        >
+                            {item.label}
+                        </Link>
+                    ))}
+                </div>
+                <button
+                    className="nav-toggle"
+                    aria-label={open ? 'Close menu' : 'Open menu'}
+                    aria-expanded={open}
+                    onClick={() => setOpen(!open)}
+                >
+                    <FontAwesomeIcon icon={open ? faTimes : faBars} />
+                </button>
             </div>
-            <div className='Hamburger' onClick={handleClick}>
-                    {click ? (
-                        <FontAwesomeIcon icon={faTimes} color='#4E3B85'/>
-                    ) : (
-                        <FontAwesomeIcon icon={faBars} color='#4E3B85'/>
-                    )}
-            </div>
-        </div>
-        );
-}
+        </nav>
+    );
+};
 
 export default NavBar;

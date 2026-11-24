@@ -1,109 +1,72 @@
-import { useEffect, useState } from 'react'
-import Loader from 'react-loaders'
-import { useRef } from 'react'
-import emailjs from '@emailjs/browser'
-import AnimatedLetters from './AnimatedLetters'
-import './Contacts.scss'
+import { useState } from 'react';
+import emailjs from '@emailjs/browser';
+import { profile, contact } from '../content';
+import './Contacts.scss';
 
 const Contacts = () => {
-  const [letterClass, setLetterClass] = useState('text-animate')
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [stateMessage, setStateMessage] = useState(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [stateMessage, setStateMessage] = useState(null);
 
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-        setLetterClass('text-animate-hover');
-    }, 3000);
+    const sendEmail = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        setIsSubmitting(true);
 
-    return () => {
-        clearTimeout(timeoutId); // Clear the timeout when the component unmounts
+        emailjs
+            .sendForm('service_o2gbhd7', 'template_k9pv4wo', form, 'db-cEmmriuu6iKcfL')
+            .then(
+                () => {
+                    setStateMessage('Thank you, your message has been sent.');
+                    form.reset();
+                },
+                () => setStateMessage('Something went wrong. Please try again, or email me directly.')
+            )
+            .finally(() => {
+                setIsSubmitting(false);
+                setTimeout(() => setStateMessage(null), 6000);
+            });
     };
- }, []);
 
-  const sendEmail = (e) => {
-    e.persist();
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    emailjs
-      .sendForm('service_o2gbhd7', 'template_k9pv4wo', e.target, 'db-cEmmriuu6iKcfL')
-      .then(
-        (result) => {
-          setStateMessage('Message sent!');
-          setIsSubmitting(false);
-          setTimeout(() => {
-            setStateMessage(null);
-          }, 5000); // hide message after 5 seconds
-        },
-        (error) => {
-          setStateMessage('Something went wrong, please try again later');
-          setIsSubmitting(false);
-          setTimeout(() => {
-            setStateMessage(null);
-          }, 5000); // hide message after 5 seconds
-        }
-      )
-
-    e.target.reset()
-  }
-
-  return (
-    <>
-        <div className="container contact-page">
-            <div className="text-zone">
-                <h1>
-                    <AnimatedLetters
-                    letterClass={letterClass}
-                    strArray={['G', 'E', 'T', ' ', 'I', 'N', ' ', 'T', 'O', 'U', 'C', 'H', '!']}
-                    idx={15}
-                    />
-                </h1>
+    return (
+        <div className="contact-page">
+            <div className="contact-intro">
+                <span className="section-label">CONTACT</span>
+                <h1>Get in touch</h1>
+                <p>{contact.line}</p>
                 <p>
-                    You can contact me using this form or send an email directly.
+                    Use the form, or email me at{' '}
+                    <a href={`mailto:${profile.email}`}>{profile.email}</a>.
                 </p>
             </div>
 
-         <div className="contact-form">
-            <form  onSubmit={sendEmail}>
-              <ul>
-                <li className="half">
-                  <input placeholder="Name" type="text" name="name" required />
-                </li>
-                <li className="half">
-                  <input
-                    placeholder="Email"
-                    type="email"
-                    name="email"
-                    required
-                  />
-                </li>
-                <li>
-                  <input
-                    placeholder="Subject"
-                    type="text"
-                    name="subject"
-                    required
-                  />
-                </li>
-                <li>
-                  <textarea
-                    placeholder="Message"
-                    name="message"
-                    required
-                  ></textarea>
-                </li>
-                <li>
-                <input className= "flat-button" type="submit" value="Send" disabled={isSubmitting} />
-      {stateMessage && <p>{stateMessage}</p>}
-                </li>
-              </ul>
-             </form>
-         </div>
+            <form className="contact-form" onSubmit={sendEmail}>
+                <div className="row">
+                    <label>
+                        <span>Name</span>
+                        <input type="text" name="name" required />
+                    </label>
+                    <label>
+                        <span>Email</span>
+                        <input type="email" name="email" required />
+                    </label>
+                </div>
+                <label>
+                    <span>Subject</span>
+                    <input type="text" name="subject" required />
+                </label>
+                <label>
+                    <span>Message</span>
+                    <textarea name="message" rows="6" required />
+                </label>
+                <div className="form-footer">
+                    {stateMessage && <p className="form-status" role="status">{stateMessage}</p>}
+                    <button className="btn btn-solid" type="submit" disabled={isSubmitting}>
+                        {isSubmitting ? 'Sending…' : 'Send message'}
+                    </button>
+                </div>
+            </form>
+        </div>
+    );
+};
 
-      </div>
-      <Loader type="pacman" />
-    </>
-  )
-}
-
-export default Contacts
+export default Contacts;
